@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101815"><title>Tone Lab · Dein Instrument, sichtbar.</title><link rel="stylesheet" href="style.css"></head>
+<body><main>
+<header><a class="brand" href="./"><span class="logo">≋</span> tone lab<span class="badge">PROOF OF CONCEPT</span></a><span class="local">Audio bleibt auf deinem Gerät</span></header>
+<section class="intro"><div class="eyebrow">HÖREN. ERKENNEN. VERSTEHEN.</div><h1>Dein Instrument,<br><em>sichtbar.</em></h1><p>Spiele einen Ton. Sieh die Taste. Entdecke, wie präzise dein Browser zuhören kann.</p></section>
+<div class="toolbar"><div><span id="statusDot" class="dot"></span><span id="status" role="status">Bereit zum Zuhören</span></div><div class="actions"><button id="demo" class="secondary">Demo anhören</button><button id="mic" class="primary">Mikrofon aktivieren</button></div></div>
+<p id="error" class="error" role="alert" hidden></p>
+<section class="workspace">
+<div class="panel detector"><div class="panel-head"><h2>Live-Erkennung</h2><span id="sourceBadge" class="badge">EINZELTÖNE</span></div>
+<div class="readout"><div class="note" id="note">—</div><div class="note-meta"><span id="frequency">Warte auf einen Ton</span><span id="noteDetail">65–2.000 Hz · etwa C2–H6</span></div></div>
+<div class="tuner"><div class="tuner-labels"><span>♭ zu tief</span><span id="cents">— Cent</span><span>zu hoch ♯</span></div><div class="tuner-track"><span class="center"></span><span id="needle"></span></div><div class="ticks"><span>−50</span><span>0</span><span>+50</span></div></div>
+<div class="metrics"><div><span>Eingangspegel</span><div class="meter"><i id="level"></i></div></div><div><span>Periodizität</span><strong id="confidence">—</strong></div><div><span>Stimmung A4</span><strong id="tuning">440,0 Hz</strong></div></div>
+<canvas id="wave" height="90" aria-label="Wellenform des Audiosignals"></canvas>
+</div>
+<aside class="panel calibration"><div class="panel-head"><h2>Instrument kalibrieren</h2><span class="badge">OPTIONAL</span></div><p id="calInstruction" role="status">Erst kurz Stille, dann eine C-Dur-Tonleiter. Halte jeden Ton etwa eine Sekunde.</p>
+<label for="octave">Startton der Tonleiter</label><select id="octave"><option value="48">C3 · tiefer</option><option value="60" selected>C4 · mittleres C</option><option value="72">C5 · höher</option></select>
+<div id="steps" class="steps" aria-label="Fortschritt der Kalibrierung"></div><button id="calibrate" class="secondary full" disabled>Kalibrierung starten</button>
+<div class="profile"><span class="eyebrow">KLANGPROFIL · EXPERIMENTELL</span><strong id="instrument">Noch kein Profil</strong><p id="profileDetail">Die Hüllkurve kann Hinweise auf angeschlagene oder gehaltene Klänge geben. Ein bestimmtes Instrument lässt sich damit nicht sicher bestimmen.</p></div><button id="reset" class="text-button">Kalibrierung zurücksetzen</button></aside>
+</section>
+<section class="panel keyboard-panel"><div class="panel-head"><h2>Deine Tastatur</h2><span id="rangeLabel">C3 – H5</span></div><p class="keyboard-hint">Die erkannte Taste leuchtet auf. Die Ansicht folgt deiner Tonhöhe.</p><div class="keyboard-scroll"><div id="keyboard" class="keyboard" role="img" aria-label="Klaviertastatur, erkannte Töne werden hervorgehoben"></div></div><div class="keyboard-footer"><span><i class="legend"></i> Erkannter Ton</span><span>Deutsche Notennamen · H = englisch B</span></div></section>
+<section class="bottom"><div><h3>So testest du es</h3><p>Mikrofon erlauben, Instrument in der Nähe platzieren und einzelne Töne spielen. Für ein eigenes Klangprofil die Tonleiter kalibrieren. Klavierpedal dabei loslassen.</p></div><div><h3>Was dieser Versuch misst</h3><p>Tonhöhe und Abweichung zur temperierten Stimmung. Die Prozentanzeige misst Periodizität, keine garantierte Trefferquote. Akkorde und mehrere Instrumente sind noch nicht unterstützt.</p></div></section>
+<footer><span>TONE LAB / BROWSER AUDIO EXPERIMENT</span><span>Ohne Upload. Ohne Aufnahme. Einfach zuhören.</span></footer>
+</main><script type="module" src="app.js"></script></body></html>
